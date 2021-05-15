@@ -3,7 +3,7 @@
  * Dateiname: main.c
  * Beschreibung: AUD-Labor-3-2
  * Autor: Nico Petersen
- * Matr.-Nr.: *******
+ * Matr.-Nr.: ******
  * Erstellt: 23.04.2021
  ******************************************************************/
 /*********** Hinweis ***********/
@@ -67,7 +67,7 @@ List *createElement(int value) {
     return temp;
 }
 
-void testProgramm() {
+void testProgramm(void) {
     
     printall(FORWARD);
     printall(REVERSE);
@@ -102,27 +102,27 @@ void testProgramm() {
 
 int main(void)
 {
-    testProgramm();
-
-    printf("Anzahl der Listenitems %d\n", get_anzentries());
-    put_entry(1, 1);
-    put_entry(20000, 305854);
-    put_entry(2, 2);
-    put_entry(3, 3);
-    put_entry(0, 5);
-    put_entry(20, 10);
-    printf("Anzahl der Listenitems %d\n", get_anzentries());
-    del_list();
-    find_entry(20000);
-    find_entry(-1);
-    find_entry(2);
-    del_entry(2);
-    printf("Anzahl der Listenitems %d\n", get_anzentries());
-    printall(FORWARD);
-    printall(REVERSE);
-
-
-    printf("\n\nENDE DES PROGRAMMS\n\n");
+//    testProgramm();
+//
+//    printf("Anzahl der Listenitems %d\n", get_anzentries());
+//    put_entry(1, 1);
+//    put_entry(20000, 305854);
+//    put_entry(2, 2);
+//    put_entry(3, 3);
+//    put_entry(0, 5);
+//    put_entry(20, 10);
+//    printf("Anzahl der Listenitems %d\n", get_anzentries());
+//    del_list();
+//    find_entry(20000);
+//    find_entry(-1);
+//    find_entry(2);
+//    del_entry(2);
+//    printf("Anzahl der Listenitems %d\n", get_anzentries());
+//    printall(FORWARD);
+//    printall(REVERSE);
+//
+//
+//    printf("\n\nENDE DES PROGRAMMS\n\n");
     return 0;
 }
 
@@ -140,12 +140,15 @@ int put_entry(int position, int aktdata) /* Einfuegen */
     if (new == NULL) {
         return NO_RAM_AVAILABLE;
     }
-    if (start == NULL) {
+    if (position < 0){
+        return POSITION_NOT_LOGICAL;
+    } else if (start == NULL) {
         start = new;
         return 0;
     } else if(position == 0) {
         new->next = start;
         start = new;
+        return 0;
     } else if (position < 0){
         return POSITION_NOT_LOGICAL;
     } else if(position > get_anzentries()) {
@@ -327,6 +330,7 @@ int find_entry(int value)
         } else {
             position++;
         }
+        temp = temp->next;
         
     } while (temp->next != NULL);
     return 0;
