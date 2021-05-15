@@ -3,7 +3,7 @@
  * Dateiname: main.c
  * Beschreibung: AUD-Labor-3-2
  * Autor: Nico Petersen
- * Matr.-Nr.: ******
+ * Matr.-Nr.: *******
  * Erstellt: 23.04.2021
  ******************************************************************/
 /*********** Hinweis ***********/
