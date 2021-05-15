@@ -3,7 +3,7 @@
  * Dateiname: main.c
  * Beschreibung: AUD-Labor-3-2
  * Autor: Nico Petersen
- * Matr.-Nr.: 937369
+ * Matr.-Nr.: ******
  * Erstellt: 23.04.2021
  ******************************************************************/
 /*********** Hinweis ***********/
@@ -61,6 +61,7 @@ List *createElement(int value);
 
 List *createElement(int value) {
     List *temp = (List *) malloc(sizeof(List));
+    if (temp == NULL) return NULL;
     temp->next = NULL;
     temp->data = value;
     return temp;
@@ -273,7 +274,7 @@ int del_entry(int position) /* Loeschen (delete) */
         }
     }
     
-    int currentPos = 1;
+    int currentPos;
     List *temp = start;
     List *tempForFree = NULL;
     if(position > get_anzentries()) {
